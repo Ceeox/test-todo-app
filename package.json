@@ -1,0 +1,29 @@
+{
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@stylexjs/babel-plugin": "^0.5.1",
+    "@stylexjs/eslint-plugin": "^0.5.1",
+    "prettier": "3.2.5",
+    "solid-devtools": "^0.29.2",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-solid": "^2.8.2",
+    "vite-plugin-stylex": "^0.8.2"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.13.1",
+    "@stylexjs/stylex": "^0.5.1",
+    "solid-js": "^1.8.11"
+  }
+}
