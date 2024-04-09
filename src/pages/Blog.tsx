@@ -1,7 +1,12 @@
 import stylex from "@stylexjs/stylex";
-import Card, { CardActions, CardContent, CardHeader } from "./components/Carrd";
-import Button from "./components/Button";
-import { colors, spacing } from "./tokens.stylex";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+} from "../components/Carrd";
+import Button from "../components/Button";
+import { colors, spacing } from "../tokens.stylex";
 
 export default function Blog() {
   return (
@@ -70,7 +75,7 @@ const style = stylex.create({
   blog: {
     color: colors.font,
     minHeight: "300px",
-    paddingHorizontal: spacing.xxxl,
+    paddingHorizontal: spacing["xxxl"],
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",

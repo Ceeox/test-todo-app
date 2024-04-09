@@ -4,24 +4,37 @@ import "./index.css";
 import Navbar from "./Navbar";
 import { colors } from "./tokens.stylex";
 import { Route, Router } from "@solidjs/router";
-import Home from "./Home";
+import Home from "./pages/Home";
+import Components from "./pages/Components";
+
+export default function App() {
+  const Blog = lazy(() => import("./pages/Blog"));
+
+  return (
+    <div {...stylex.props(styles.root)}>
+      <Navbar />
+      <main {...stylex.props(styles.main)}>
+        <Router>
+          <Route path="/" component={Home}></Route>
+          <Route path="/blog" component={Blog}></Route>
+          <Route path="/components" component={Components}></Route>
+        </Router>
+      </main>
+      <footer {...stylex.props(styles.footer)}></footer>
+    </div>
+  );
+}
 
 const styles = stylex.create({
   root: {
+    color: colors.font,
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
-    alignItems: "stretch",
     minHeight: "100vh",
-  },
-  nav: {
-    backgroundColor: colors.primaryDark,
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
+    backgroundColor: colors.background,
   },
   main: {
-    backgroundColor: colors.background,
+    flex: 1,
     height: "100%",
     width: "100%",
     alignSelf: "stretch",
@@ -31,19 +44,3 @@ const styles = stylex.create({
     height: "200px",
   },
 });
-
-export default function App() {
-  const Blog = lazy(() => import("./Blog"));
-  return (
-    <div {...stylex.props(styles.root)}>
-      <Navbar />
-      <main {...stylex.props(styles.main)}>
-        <Router>
-          <Route path="/" component={Home}></Route>
-          <Route path="/blog" component={Blog}></Route>
-        </Router>
-      </main>
-      <footer {...stylex.props(styles.footer)}></footer>
-    </div>
-  );
-}

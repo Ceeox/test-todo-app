@@ -1,6 +1,13 @@
 import stylex from "@stylexjs/stylex";
-import { colors, spacing, width } from "../tokens.stylex";
-import { Component, JSX, children } from "solid-js";
+import {
+  borderRadius,
+  borderWidth,
+  colors,
+  padding,
+  shadow,
+  spacing,
+} from "../tokens.stylex";
+import { JSX } from "solid-js";
 
 export type CardContentProps = {
   children?: JSX.Element;
@@ -40,18 +47,19 @@ export type CardProps = {
   children?: JSX.Element;
 };
 
-export default function Card(props: CardProps) {
+export function Card(props: CardProps) {
   return <div {...stylex.props(styles.card)}>{props.children}</div>;
 }
 
 const styles = stylex.create({
   card: {
-    padding: spacing.md,
+    padding: padding[4],
     borderColor: colors.border,
-    borderWidth: width.sm,
+    borderWidth: borderWidth.sm,
     borderStyle: "solid",
-    borderRadius: width.lg,
+    borderRadius: borderRadius.lg,
     backgroundColor: colors.forground,
+    boxShadow: shadow.xl,
   },
   header: {
     paddingBottom: spacing.md,

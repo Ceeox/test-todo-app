@@ -1,11 +1,6 @@
 import stylex from "@stylexjs/stylex";
 import { ComponentProps, JSX } from "solid-js";
-import { colors, spacing, width } from "../tokens.stylex";
-import { StyleXVar } from "@stylexjs/stylex/lib/StyleXTypes";
-
-function capitalizeFirstLetter(string: string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import { borderWidth, colors, padding, spacing } from "../tokens.stylex";
 
 type ButtonProps = {
   varient?: "default" | "solid" | "outline" | "link";
@@ -48,8 +43,8 @@ const styles = stylex.create({
     justifyContent: "center",
     whiteSpace: "nowrap",
     color: colors.font,
-    paddingHorizontal: width.xl,
-    paddingVertical: width.lg,
+    paddingHorizontal: padding["3.5"],
+    paddingVertical: padding[2],
     cursor: { ":hover": "pointer" },
   },
 
@@ -65,7 +60,7 @@ const styles = stylex.create({
   outline: {
     borderRadius: spacing.xs,
     borderColor: colors.border,
-    borderWidth: width.xs,
+    borderWidth: borderWidth.md,
     borderStyle: "solid",
     backgroundColor: "transparent",
   },
@@ -105,7 +100,9 @@ const primaryOutlineStyle = stylex.create({
 });
 const primaryLinkStyle = stylex.create({
   base: {
-    textDecoration: { default: "none", ":hover": "underline" },
+    border: 0,
+    backgroundColor: "transparent",
+    textDecoration: { default: "transparent", ":hover": "underline" },
   },
   disabled: {
     textDecoration: { default: "none", ":hover": "none" },
@@ -141,6 +138,8 @@ const secondaryOutlineStyle = stylex.create({
 });
 const secondaryLinkStyle = stylex.create({
   base: {
+    border: 0,
+    backgroundColor: "transparent",
     textDecoration: { default: "none", ":hover": "underline" },
   },
   disabled: {
